@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,1,400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    @keyframes floatUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    ::selection { background: #F6C56A; color: #4A2410; }
+  </style>
+</helmet>
+<div style="font-family: 'Figtree', system-ui, sans-serif; color: #46301F; background: #FAF1E3; min-height: 100vh; -webkit-font-smoothing: antialiased;">
+
+  <!-- sticky slim language bar -->
+  <div style="position: sticky; top: 0; z-index: 20; background: rgba(250,241,227,0.86); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(180,110,60,0.14);">
+    <div style="max-width: 860px; margin: 0 auto; padding: 11px 24px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;">
+      <div style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 15px; color: #8E3A1E; letter-spacing: -0.01em;">{{ c.name }}</div>
+      <nav style="display: flex; flex-wrap: wrap; gap: 5px;">
+        <sc-for list="{{ langList }}" as="L" hint-placeholder-count="7">
+          <button type="button" onClick="{{ L.onSelect }}" style="{{ L.pillStyle }}"><span style="display: inline-flex; border-radius: 3px; overflow: hidden; box-shadow: 0 0 0 1px rgba(0,0,0,0.10); flex: none;">{{ L.flag }}</span>{{ L.label }}</button>
+        </sc-for>
+      </nav>
+    </div>
+  </div>
+
+  <main style="max-width: 860px; margin: 0 auto; padding: 0 24px;">
+
+    <!-- HERO -->
+    <section style="padding: 76px 0 44px; text-align: center; animation: floatUp .7s ease both;">
+      <div style="display: inline-block; font-size: 12.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #C2622E; margin-bottom: 24px;">{{ tr.kicker }}</div>
+      <h1 style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(36px, 5.4vw, 62px); line-height: 1.04; letter-spacing: -0.018em; margin: 0 auto 24px; color: #3C2113; max-width: 15ch; text-wrap: balance;">{{ tr.heroLead }}</h1>
+      <p style="font-size: 19px; line-height: 1.62; color: #6B4A33; max-width: 30em; margin: 0 auto 32px;">{{ tr.heroBody }}</p>
+      <a href="#contact" style="display: inline-flex; align-items: center; gap: 9px; background: linear-gradient(135deg, #F09A3E, #DD5C2C); color: #fff; font-weight: 600; font-size: 16px; text-decoration: none; padding: 15px 28px; border-radius: 999px; box-shadow: 0 10px 26px rgba(210,90,44,0.32);">{{ tr.contactTitle }} <span style="font-size: 18px;">→</span></a>
+    </section>
+
+    <!-- LANGUAGE USP -->
+    <section style="padding: 32px 0;">
+      <div style="text-align: center; max-width: 38em; margin: 0 auto 30px;">
+        <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(26px, 3.4vw, 38px); margin: 0 0 12px; color: #3C2113;">{{ tr.langsTitle }}</h2>
+        <p style="font-size: 16.5px; line-height: 1.6; color: #6B4A33; margin: 0;">{{ tr.langsBody }}</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(115px, 1fr)); gap: 12px;">
+        <sc-for list="{{ langList }}" as="L" hint-placeholder-count="7">
+          <button type="button" onClick="{{ L.onSelect }}" style="{{ L.cardStyle }}">
+            <span style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 23px; font-weight: 400; line-height: 1;">{{ L.hello }}</span>
+            <span style="font-size: 13px; font-weight: 600; color: #A4673F;">{{ L.label }}</span>
+          </button>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- APPROACH pull-quote -->
+    <section style="padding: 48px 0; text-align: center;">
+      <div style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #C2622E; margin-bottom: 18px;">{{ tr.approachTitle }}</div>
+      <p style="font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(22px, 3vw, 32px); line-height: 1.42; color: #432717; margin: 0 auto; max-width: 22em; text-wrap: pretty;">{{ tr.approachBody }}</p>
+    </section>
+
+    <!-- OFFER -->
+    <section style="padding: 24px 0;">
+      <div style="background: #fff; border: 1px solid rgba(180,110,60,0.16); border-radius: 22px; padding: 36px; text-align: center;">
+        <div style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #C2622E; margin-bottom: 14px;">{{ tr.offerTitle }}</div>
+        <p style="font-size: 17.5px; line-height: 1.6; color: #5C3D29; margin: 0 auto 26px; max-width: 34em;">{{ tr.offerBody }}</p>
+        <div style="font-size: 13px; font-weight: 700; color: #875233; margin-bottom: 13px;">{{ tr.methodsTitle }}</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+          <sc-for list="{{ methodList }}" as="m" hint-placeholder-count="6">
+            <span style="font-size: 13.5px; font-weight: 500; color: #6B4A33; background: rgba(247,205,134,0.32); border: 1px solid rgba(180,110,60,0.16); padding: 8px 13px; border-radius: 999px;">{{ m }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOCUS -->
+    <section style="padding: 24px 0;">
+      <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(22px, 2.8vw, 30px); margin: 0 0 18px; color: #3C2113; text-align: center;">{{ tr.focusTitle }}</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+        <sc-for list="{{ focusList }}" as="f" hint-placeholder-count="7">
+          <span style="font-size: 15.5px; font-weight: 500; color: #fff; background: linear-gradient(135deg, #E08440, #C0532A); padding: 10px 18px; border-radius: 999px; box-shadow: 0 6px 16px rgba(190,80,40,0.22);">{{ f }}</span>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- PRACTICAL -->
+    <section style="padding: 40px 0 24px;">
+      <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(22px, 2.8vw, 30px); margin: 0 0 20px; color: #3C2113; text-align: center;">{{ tr.practicalTitle }}</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px;">
+        <div style="background: #fff; border: 1px solid rgba(180,110,60,0.16); border-radius: 18px; padding: 22px; text-align: center;">
+          <div style="font-size: 12.5px; font-weight: 700; color: #C2622E; margin-bottom: 7px;">{{ tr.hoursLabel }}</div>
+          <div style="font-size: 15px; line-height: 1.5; color: #5C3D29;">{{ tr.hoursValue }}</div>
+        </div>
+        <div style="background: #fff; border: 1px solid rgba(180,110,60,0.16); border-radius: 18px; padding: 22px; text-align: center;">
+          <div style="font-size: 12.5px; font-weight: 700; color: #C2622E; margin-bottom: 7px;">{{ tr.feesLabel }}</div>
+          <div style="font-size: 15px; line-height: 1.5; color: #5C3D29;">{{ tr.feesValue }}</div>
+        </div>
+        <div style="background: #fff; border: 1px solid rgba(180,110,60,0.16); border-radius: 18px; padding: 22px; text-align: center;">
+          <div style="font-size: 12.5px; font-weight: 700; color: #C2622E; margin-bottom: 7px;">{{ tr.insuranceLabel }}</div>
+          <div style="font-size: 15px; line-height: 1.5; color: #5C3D29;">{{ tr.insuranceValue }}</div>
+        </div>
+        <div style="background: #fff; border: 1px solid rgba(180,110,60,0.16); border-radius: 18px; padding: 22px; text-align: center;">
+          <div style="font-size: 12.5px; font-weight: 700; color: #C2622E; margin-bottom: 7px;">{{ tr.accessLabel }}</div>
+          <div style="font-size: 15px; line-height: 1.5; color: #5C3D29;">{{ tr.accessValue }}</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="padding: 44px 0 30px; scroll-margin-top: 60px;">
+      <div style="background: linear-gradient(160deg, #FFFDF9, #FFEAD0); border: 1px solid rgba(180,110,60,0.18); border-radius: 28px; padding: 44px; box-shadow: 0 18px 46px rgba(170,90,45,0.12); text-align: center;">
+        <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(26px, 3.4vw, 38px); margin: 0 0 12px; color: #3C2113;">{{ tr.contactTitle }}</h2>
+        <p style="font-size: 16.5px; line-height: 1.6; color: #6B4A33; margin: 0 auto 28px; max-width: 32em;">{{ tr.contactBody }}</p>
+        <form onSubmit="{{ onSubmit }}" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 540px; margin: 0 auto; text-align: left;">
+          <input name="name" required placeholder="{{ tr.fName }}" style="font-family: inherit; font-size: 15.5px; color: #46301F; background: #fff; border: 1.5px solid rgba(180,110,60,0.24); border-radius: 13px; padding: 14px 16px; outline: none;" style-focus="border-color: #DD5C2C;">
+          <input name="email" type="email" required placeholder="{{ tr.fEmail }}" style="font-family: inherit; font-size: 15.5px; color: #46301F; background: #fff; border: 1.5px solid rgba(180,110,60,0.24); border-radius: 13px; padding: 14px 16px; outline: none;" style-focus="border-color: #DD5C2C;">
+          <input name="phone" placeholder="{{ tr.fPhone }}" style="grid-column: 1 / -1; font-family: inherit; font-size: 15.5px; color: #46301F; background: #fff; border: 1.5px solid rgba(180,110,60,0.24); border-radius: 13px; padding: 14px 16px; outline: none;" style-focus="border-color: #DD5C2C;">
+          <textarea name="concern" rows="4" placeholder="{{ tr.fConcern }}" style="grid-column: 1 / -1; font-family: inherit; font-size: 15.5px; color: #46301F; background: #fff; border: 1.5px solid rgba(180,110,60,0.24); border-radius: 13px; padding: 14px 16px; outline: none; resize: vertical;" style-focus="border-color: #DD5C2C;"></textarea>
+          <button type="submit" style="grid-column: 1 / -1; font-family: inherit; font-weight: 600; font-size: 16px; color: #fff; background: linear-gradient(135deg, #F09A3E, #DD5C2C); border: none; border-radius: 13px; padding: 15px; cursor: pointer; box-shadow: 0 10px 24px rgba(210,90,44,0.3);">{{ tr.fSubmit }}</button>
+          <div style="grid-column: 1 / -1; font-size: 12.5px; color: #A4673F; line-height: 1.45; text-align: center;">{{ tr.fNote }}</div>
+        </form>
+      </div>
+    </section>
+
+    <!-- CONTACT DETAILS -->
+    <footer style="padding: 20px 0 64px; display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; align-items: center;">
+      <span style="font-size: 14.5px; color: #6B4A33;">{{ c.address1 }}, {{ c.address2 }}</span>
+      <span style="color: #D8B48E;">·</span>
+      <a href="{{ telHref }}" style="font-size: 14.5px; color: #B0541F; text-decoration: none; font-weight: 600;">{{ c.tel }}</a>
+      <span style="color: #D8B48E;">·</span>
+      <a href="{{ mailHref }}" style="font-size: 14.5px; color: #B0541F; text-decoration: none; font-weight: 600;">{{ c.email }}</a>
+    </footer>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:900,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { lang: "pt", data: null };
+
+  componentDidMount() {
+    const url = new URL("translations.js", document.baseURI).href;
+    import(url).then((m) => {
+      let lang = "pt";
+      try { const s = localStorage.getItem("illes_lang"); if (s && m.t[s]) lang = s; } catch (e) {}
+      this.setState({ data: m, lang });
+    });
+  }
+
+  pick(code) {
+    try { localStorage.setItem("illes_lang", code); } catch (e) {}
+    this.setState({ lang: code });
+  }
+
+  submit(e) {
+    e.preventDefault();
+    const f = e.target;
+    const tr = this.state.data.t[this.state.lang];
+    const c = this.state.data.contact;
+    const lines = [
+      tr.fName + ": " + (f.name.value || "—"),
+      tr.fEmail + ": " + (f.email.value || "—"),
+      tr.fPhone + ": " + (f.phone.value || "—"),
+      "",
+      tr.fConcern.replace(/\s*\(.*\)\s*$/, "") + ":",
+      (f.concern.value || "—"),
+    ];
+    const subject = tr.contactTitle + " — " + (f.name.value || "");
+    window.location.href = "mailto:" + c.email +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(lines.join("\n"));
+  }
+
+  renderVals() {
+    const d = this.state.data;
+    if (!d) return {};
+    const lang = this.state.lang;
+    const tr = d.t[lang];
+    const c = d.contact;
+
+    const h = React.createElement;
+    const flagEl = (code) => {
+      const base = { width: 20, height: 13, preserveAspectRatio: "none", style: { display: "block" } };
+      const v3 = (a, b, c) => h("svg", { ...base, viewBox: "0 0 3 2" }, h("rect", { x: 0, width: 1, height: 2, fill: a }), h("rect", { x: 1, width: 1, height: 2, fill: b }), h("rect", { x: 2, width: 1, height: 2, fill: c }));
+      const hz3 = (a, b, c) => h("svg", { ...base, viewBox: "0 0 3 3" }, h("rect", { y: 0, width: 3, height: 1, fill: a }), h("rect", { y: 1, width: 3, height: 1, fill: b }), h("rect", { y: 2, width: 3, height: 1, fill: c }));
+      switch (code) {
+        case "fr": return v3("#0055A4", "#FFFFFF", "#EF4135");
+        case "it": return v3("#008C45", "#F4F5F0", "#CD212A");
+        case "de": return hz3("#000000", "#DD0000", "#FFCE00");
+        case "hu": return hz3("#CD2A3E", "#FFFFFF", "#436F4D");
+        case "es": return h("svg", { ...base, viewBox: "0 0 3 2" }, h("rect", { width: 3, height: 2, fill: "#AA151B" }), h("rect", { y: 0.5, width: 3, height: 1, fill: "#F1BF00" }));
+        case "pt": return h("svg", { ...base, viewBox: "0 0 60 40" }, h("rect", { width: 60, height: 40, fill: "#046A38" }), h("rect", { x: 24, width: 36, height: 40, fill: "#DA291C" }), h("circle", { cx: 24, cy: 20, r: 7, fill: "#FFD100" }), h("circle", { cx: 24, cy: 20, r: 3.2, fill: "#DA291C" }));
+        case "en": return h("svg", { ...base, viewBox: "0 0 60 30" },
+          h("rect", { width: 60, height: 30, fill: "#012169" }),
+          h("path", { d: "M0,0 L60,30 M60,0 L0,30", stroke: "#FFFFFF", strokeWidth: 6 }),
+          h("path", { d: "M0,0 L60,30 M60,0 L0,30", stroke: "#C8102E", strokeWidth: 2 }),
+          h("path", { d: "M30,0 V30 M0,15 H60", stroke: "#FFFFFF", strokeWidth: 10 }),
+          h("path", { d: "M30,0 V30 M0,15 H60", stroke: "#C8102E", strokeWidth: 6 }));
+        default: return null;
+      }
+    };
+
+    const langList = d.langs.map((L) => {
+      const active = L.code === lang;
+      return {
+        code: L.code, label: L.label, hello: L.hello,
+        onSelect: () => this.pick(L.code),
+        flag: flagEl(L.code),
+        pillStyle: [
+          "display: inline-flex; align-items: center; gap: 6px; font-family: inherit; cursor: pointer; font-size: 13px; font-weight: 600; padding: 6px 11px; border-radius: 999px; transition: all .2s; border: 1.5px solid transparent;",
+          active
+            ? "background: linear-gradient(135deg, #F09A3E, #DD5C2C); color: #fff;"
+            : "background: transparent; color: #9A5E38;",
+        ].join(" "),
+        cardStyle: [
+          "font-family: inherit; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 20px 10px; border-radius: 18px; transition: all .22s;",
+          active
+            ? "background: linear-gradient(155deg, #FFF3DF, #FFE3BC); border: 2px solid #DD5C2C; box-shadow: 0 10px 26px rgba(210,90,44,0.20); transform: translateY(-2px);"
+            : "background: #fff; border: 2px solid rgba(180,110,60,0.14);",
+        ].join(" "),
+      };
+    });
+
+    const subject = encodeURIComponent(tr.contactTitle);
+    return {
+      tr, c, langList,
+      methodList: tr.methods,
+      focusList: tr.focus,
+      telHref: "tel:" + c.tel.replace(/\s/g, ""),
+      mailHref: "mailto:" + c.email + "?subject=" + subject,
+      onSubmit: (e) => this.submit(e),
+    };
+  }
+}
+</script>
+</body>
+</html>
