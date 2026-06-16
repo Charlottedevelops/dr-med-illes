@@ -1,13 +1,496 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dr. Illes – Psychiatrie Zürich</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dr. med. Peter Illes – Psychiatrie & Psychotherapie Zürich</title>
+  <meta name="description" content="Dr. med. Peter Illes — Facharzt FMH für Psychiatrie und Psychotherapie in Zürich. Therapie in 7 Sprachen: Deutsch, Français, Italiano, English, Español, Português, Magyar.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://charlottedevelops.github.io/dr-med-illes/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dr. med. Peter Illes – Psychiatrie Zürich">
+  <meta property="og:description" content="Psychiatrie & Psychotherapie in 7 Sprachen. General Wille-Strasse 21, 8002 Zürich.">
+  <meta property="og:url" content="https://charlottedevelops.github.io/dr-med-illes/">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,1,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Figtree', system-ui, sans-serif; color: #46301F; background: #FAF1E3; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+    ::selection { background: #F6C56A; color: #4A2410; }
+    @keyframes floatUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    a { color: inherit; }
+    button { font-family: inherit; }
+
+    /* Sticky nav */
+    #nav { position: sticky; top: 0; z-index: 20; background: rgba(250,241,227,0.86); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(180,110,60,0.14); }
+    #nav-inner { max-width: 860px; margin: 0 auto; padding: 11px 24px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+    #nav-name { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 15px; color: #8E3A1E; letter-spacing: -0.01em; }
+    #lang-pills { display: flex; flex-wrap: wrap; gap: 5px; }
+    .pill { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font-size: 13px; font-weight: 600; padding: 6px 11px; border-radius: 999px; border: 1.5px solid transparent; transition: all .2s; background: transparent; color: #9A5E38; }
+    .pill.active { background: linear-gradient(135deg, #F09A3E, #DD5C2C); color: #fff; }
+    .pill svg { border-radius: 3px; box-shadow: 0 0 0 1px rgba(0,0,0,0.10); flex: none; }
+
+    main { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    #hero { padding: 76px 0 44px; text-align: center; animation: floatUp .7s ease both; }
+    #hero-kicker { display: inline-block; font-size: 12.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #C2622E; margin-bottom: 24px; }
+    #hero h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(36px, 5.4vw, 62px); line-height: 1.04; letter-spacing: -0.018em; margin: 0 auto 24px; color: #3C2113; max-width: 15ch; text-wrap: balance; }
+    #hero p { font-size: 19px; line-height: 1.62; color: #6B4A33; max-width: 30em; margin: 0 auto 32px; }
+    #hero-cta { display: inline-flex; align-items: center; gap: 9px; background: linear-gradient(135deg, #F09A3E, #DD5C2C); color: #fff; font-weight: 600; font-size: 16px; text-decoration: none; padding: 15px 28px; border-radius: 999px; box-shadow: 0 10px 26px rgba(210,90,44,0.32); }
+
+    /* Language USP */
+    #langs-section { padding: 32px 0; }
+    #langs-intro { text-align: center; max-width: 38em; margin: 0 auto 30px; }
+    #langs-intro h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(26px, 3.4vw, 38px); margin: 0 0 12px; color: #3C2113; }
+    #langs-intro p { font-size: 16.5px; line-height: 1.6; color: #6B4A33; margin: 0; }
+    #lang-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(115px, 1fr)); gap: 12px; }
+    .lang-card { font-family: inherit; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 20px 10px; border-radius: 18px; transition: all .22s; background: #fff; border: 2px solid rgba(180,110,60,0.14); }
+    .lang-card.active { background: linear-gradient(155deg, #FFF3DF, #FFE3BC); border: 2px solid #DD5C2C; box-shadow: 0 10px 26px rgba(210,90,44,0.20); transform: translateY(-2px); }
+    .lang-card-hello { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 23px; font-weight: 400; line-height: 1; }
+    .lang-card-label { font-size: 13px; font-weight: 600; color: #A4673F; }
+
+    /* Approach */
+    #approach { padding: 48px 0; text-align: center; }
+    #approach-kicker { font-size: 12.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #C2622E; margin-bottom: 18px; }
+    #approach p { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(22px, 3vw, 32px); line-height: 1.42; color: #432717; margin: 0 auto; max-width: 22em; text-wrap: pretty; }
+
+    /* Offer */
+    #offer { padding: 24px 0; }
+    #offer-box { background: #fff; border: 1px solid rgba(180,110,60,0.16); border-radius: 22px; padding: 36px; text-align: center; }
+    #offer-kicker { font-size: 12.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #C2622E; margin-bottom: 14px; }
+    #offer-body { font-size: 17.5px; line-height: 1.6; color: #5C3D29; margin: 0 auto 26px; max-width: 34em; }
+    #methods-title { font-size: 13px; font-weight: 700; color: #875233; margin-bottom: 13px; }
+    #methods-list { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .method-tag { font-size: 13.5px; font-weight: 500; color: #6B4A33; background: rgba(247,205,134,0.32); border: 1px solid rgba(180,110,60,0.16); padding: 8px 13px; border-radius: 999px; }
+
+    /* Focus */
+    #focus { padding: 24px 0; }
+    #focus h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(22px, 2.8vw, 30px); margin: 0 0 18px; color: #3C2113; text-align: center; }
+    #focus-list { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .focus-tag { font-size: 15.5px; font-weight: 500; color: #fff; background: linear-gradient(135deg, #E08440, #C0532A); padding: 10px 18px; border-radius: 999px; box-shadow: 0 6px 16px rgba(190,80,40,0.22); }
+
+    /* Practical */
+    #practical { padding: 40px 0 24px; }
+    #practical h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(22px, 2.8vw, 30px); margin: 0 0 20px; color: #3C2113; text-align: center; }
+    #practical-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+    .info-card { background: #fff; border: 1px solid rgba(180,110,60,0.16); border-radius: 18px; padding: 22px; text-align: center; }
+    .info-label { font-size: 12.5px; font-weight: 700; color: #C2622E; margin-bottom: 7px; }
+    .info-value { font-size: 15px; line-height: 1.5; color: #5C3D29; }
+
+    /* Contact */
+    #contact { padding: 44px 0 30px; scroll-margin-top: 60px; }
+    #contact-box { background: linear-gradient(160deg, #FFFDF9, #FFEAD0); border: 1px solid rgba(180,110,60,0.18); border-radius: 28px; padding: 44px; box-shadow: 0 18px 46px rgba(170,90,45,0.12); text-align: center; }
+    #contact-box h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(26px, 3.4vw, 38px); margin: 0 0 12px; color: #3C2113; }
+    #contact-box > p { font-size: 16.5px; line-height: 1.6; color: #6B4A33; margin: 0 auto 28px; max-width: 32em; }
+    #contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 540px; margin: 0 auto; text-align: left; }
+    #contact-form input, #contact-form textarea { font-family: inherit; font-size: 15.5px; color: #46301F; background: #fff; border: 1.5px solid rgba(180,110,60,0.24); border-radius: 13px; padding: 14px 16px; outline: none; transition: border-color .2s; }
+    #contact-form input:focus, #contact-form textarea:focus { border-color: #DD5C2C; }
+    #contact-form input[name="phone"], #contact-form textarea { grid-column: 1 / -1; }
+    #contact-form textarea { resize: vertical; }
+    #contact-form button { grid-column: 1 / -1; font-family: inherit; font-weight: 600; font-size: 16px; color: #fff; background: linear-gradient(135deg, #F09A3E, #DD5C2C); border: none; border-radius: 13px; padding: 15px; cursor: pointer; box-shadow: 0 10px 24px rgba(210,90,44,0.3); transition: opacity .2s; }
+    #contact-form button:hover { opacity: .88; }
+    #form-note { grid-column: 1 / -1; font-size: 12.5px; color: #A4673F; line-height: 1.45; text-align: center; }
+
+    /* Footer */
+    footer { padding: 20px 0 64px; display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; align-items: center; }
+    footer span { font-size: 14.5px; color: #6B4A33; }
+    footer .dot { color: #D8B48E; }
+    footer a { font-size: 14.5px; color: #B0541F; text-decoration: none; font-weight: 600; }
+  </style>
 </head>
 <body>
-  <!-- Inhalt folgt -->
-  <script src="script.js"></script>
+
+<!-- STICKY NAV -->
+<div id="nav">
+  <div id="nav-inner">
+    <div id="nav-name">Dr. med. Peter Illes</div>
+    <nav id="lang-pills" aria-label="language"></nav>
+  </div>
+</div>
+
+<main>
+  <!-- HERO -->
+  <section id="hero">
+    <div id="hero-kicker"></div>
+    <h1 id="hero-lead"></h1>
+    <p id="hero-body"></p>
+    <a href="#contact" id="hero-cta"></a>
+  </section>
+
+  <!-- LANGUAGE USP -->
+  <section id="langs-section">
+    <div id="langs-intro">
+      <h2 id="langs-title"></h2>
+      <p id="langs-body"></p>
+    </div>
+    <div id="lang-cards"></div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach">
+    <div id="approach-kicker"></div>
+    <p id="approach-body"></p>
+  </section>
+
+  <!-- OFFER -->
+  <section id="offer">
+    <div id="offer-box">
+      <div id="offer-kicker"></div>
+      <p id="offer-body"></p>
+      <div id="methods-title"></div>
+      <div id="methods-list"></div>
+    </div>
+  </section>
+
+  <!-- FOCUS -->
+  <section id="focus">
+    <h2 id="focus-title"></h2>
+    <div id="focus-list"></div>
+  </section>
+
+  <!-- PRACTICAL -->
+  <section id="practical">
+    <h2 id="practical-title"></h2>
+    <div id="practical-grid">
+      <div class="info-card"><div class="info-label" id="hours-label"></div><div class="info-value" id="hours-value"></div></div>
+      <div class="info-card"><div class="info-label" id="fees-label"></div><div class="info-value" id="fees-value"></div></div>
+      <div class="info-card"><div class="info-label" id="insurance-label"></div><div class="info-value" id="insurance-value"></div></div>
+      <div class="info-card"><div class="info-label" id="access-label"></div><div class="info-value" id="access-value"></div></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div id="contact-box">
+      <h2 id="contact-title"></h2>
+      <p id="contact-body"></p>
+      <form id="contact-form">
+        <input name="name" required id="f-name">
+        <input name="email" type="email" required id="f-email">
+        <input name="phone" id="f-phone">
+        <textarea name="concern" rows="4" id="f-concern"></textarea>
+        <button type="submit" id="f-submit"></button>
+        <div id="form-note"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>General Wille-Strasse 21, 8002 Zürich</span>
+    <span class="dot">·</span>
+    <a href="tel:+41442116871">044 211 68 71</a>
+    <span class="dot">·</span>
+    <a href="mailto:peter.illes@bluewin.ch">peter.illes@bluewin.ch</a>
+  </footer>
+</main>
+
+<script>
+const contact = {
+  name: "Dr. med. Peter Illes",
+  address1: "General Wille-Strasse 21",
+  address2: "8002 Zürich",
+  tel: "044 211 68 71",
+  email: "peter.illes@bluewin.ch",
+};
+
+const langs = [
+  { code: "pt", label: "Português", hello: "Olá" },
+  { code: "es", label: "Español",   hello: "Hola" },
+  { code: "fr", label: "Français",  hello: "Bonjour" },
+  { code: "it", label: "Italiano",  hello: "Ciao" },
+  { code: "de", label: "Deutsch",   hello: "Grüezi" },
+  { code: "en", label: "English",   hello: "Hello" },
+  { code: "hu", label: "Magyar",    hello: "Üdv" },
+];
+
+const t = {
+  pt: {
+    kicker: "Psiquiatria & Psicoterapia · Zurique",
+    heroLead: "Terapia na língua do seu coração",
+    heroBody: "Há mais de 50 anos acompanho pessoas em momentos difíceis — em sete línguas, para que possa falar livremente com as palavras que sente como suas.",
+    langsTitle: "Falo a sua língua",
+    langsBody: "Sentir-se compreendido começa por poder falar com naturalidade. É bem-vindo a iniciar a nossa conversa em qualquer uma destas línguas:",
+    approachTitle: "A minha abordagem",
+    approachBody: "O meu consultório é um espaço calmo e acolhedor, onde será recebido com abertura e sem julgamentos. Juntos encontramos o caminho e os métodos que lhe convêm — ao seu ritmo, com respeito por quem é.",
+    offerTitle: "O que ofereço",
+    offerBody: "Psicoterapia médica e psiquiatria — em especial psicoterapia cognitivo-comportamental e psicoterapia psicanalítica.",
+    methodsTitle: "Métodos",
+    methods: ["Psicoterapia de conversa", "Métodos imaginativos", "Psicodrama", "Psicoterapia de orientação psicodinâmica", "Técnicas de relaxamento", "Elementos de terapia comportamental"],
+    focusTitle: "Áreas de foco",
+    focus: ["PHDA / TDAH", "Perturbações de ansiedade", "Perturbação borderline e da personalidade", "Depressão", "Perturbações neuróticas", "Psicoses", "Esquizofrenia"],
+    practicalTitle: "Informações práticas",
+    hoursLabel: "Horário de consulta", hoursValue: "Mediante marcação, de segunda a sexta",
+    feesLabel: "Honorários", feesValue: "Segundo a tarifa suíça TARMED",
+    insuranceLabel: "Seguro de saúde", insuranceValue: "Reconhecido pelo seguro básico suíço (LAMal/KVG)",
+    accessLabel: "Como chegar", accessValue: "Centro de Zurique, perto de Stadelhofen — comboio e elétrico próximos",
+    contactTitle: "Pedir uma primeira consulta",
+    contactBody: "Dê o primeiro passo. Conte-me um pouco sobre si e responderei pessoalmente.",
+    fName: "O seu nome", fEmail: "E-mail", fPhone: "Telefone", fConcern: "O que o traz aqui? (opcional)",
+    fSubmit: "Enviar pedido", fNote: "Isto abre a sua aplicação de e-mail com a mensagem pronta a enviar.",
+  },
+  es: {
+    kicker: "Psiquiatría & Psicoterapia · Zúrich",
+    heroLead: "Terapia en la lengua de tu corazón",
+    heroBody: "Desde hace más de 50 años acompaño a las personas en momentos difíciles — en siete idiomas, para que puedas hablar con libertad y con las palabras que sientes como tuyas.",
+    langsTitle: "Hablo tu idioma",
+    langsBody: "Sentirse comprendido empieza por poder hablar con naturalidad. Eres bienvenido a comenzar nuestra conversación en cualquiera de estos idiomas:",
+    approachTitle: "Mi enfoque",
+    approachBody: "Mi consulta es un espacio tranquilo y cálido, donde te recibo con apertura y sin juicios. Juntos encontramos el camino y los métodos que mejor te convienen — a tu ritmo y con respeto por quién eres.",
+    offerTitle: "Lo que ofrezco",
+    offerBody: "Psicoterapia médica y psiquiatría — en particular psicoterapia cognitivo-conductual y psicoterapia psicoanalítica.",
+    methodsTitle: "Métodos",
+    methods: ["Psicoterapia conversacional", "Métodos imaginativos", "Psicodrama", "Psicoterapia de orientación psicodinámica", "Técnicas de relajación", "Elementos de terapia conductual"],
+    focusTitle: "Áreas de enfoque",
+    focus: ["TDAH", "Trastornos de ansiedad", "Trastorno límite y de la personalidad", "Depresión", "Trastornos neuróticos", "Psicosis", "Esquizofrenia"],
+    practicalTitle: "Información práctica",
+    hoursLabel: "Horario de consulta", hoursValue: "Con cita previa, de lunes a viernes",
+    feesLabel: "Honorarios", feesValue: "Según la tarifa suiza TARMED",
+    insuranceLabel: "Seguro médico", insuranceValue: "Reconocido por el seguro básico suizo (LAMal/KVG)",
+    accessLabel: "Cómo llegar", accessValue: "Centro de Zúrich, cerca de Stadelhofen — tren y tranvía cercanos",
+    contactTitle: "Solicitar una primera cita",
+    contactBody: "Da el primer paso. Cuéntame un poco sobre ti y te responderé personalmente.",
+    fName: "Tu nombre", fEmail: "Correo electrónico", fPhone: "Teléfono", fConcern: "¿Qué te trae aquí? (opcional)",
+    fSubmit: "Enviar solicitud", fNote: "Esto abre tu aplicación de correo con el mensaje listo para enviar.",
+  },
+  fr: {
+    kicker: "Psychiatrie & Psychothérapie · Zurich",
+    heroLead: "Une thérapie dans la langue de votre cœur",
+    heroBody: "Depuis plus de 50 ans, j'accompagne des personnes dans les moments difficiles — en sept langues, pour que vous puissiez parler librement, avec les mots qui sont vraiment les vôtres.",
+    langsTitle: "Je parle votre langue",
+    langsBody: "Se sentir compris commence par pouvoir parler avec naturel. Vous êtes le bienvenu pour commencer notre échange dans l'une de ces langues :",
+    approachTitle: "Mon approche",
+    approachBody: "Mon cabinet est un espace calme et chaleureux, où vous êtes accueilli avec ouverture et sans jugement. Ensemble, nous trouvons le chemin et les méthodes qui vous conviennent — à votre rythme, dans le respect de qui vous êtes.",
+    offerTitle: "Ce que je propose",
+    offerBody: "Psychothérapie médicale et psychiatrie — en particulier la psychothérapie cognitivo-comportementale et la psychothérapie psychanalytique.",
+    methodsTitle: "Méthodes",
+    methods: ["Psychothérapie par la parole", "Méthodes imaginatives", "Psychodrame", "Psychothérapie d'orientation psychodynamique", "Techniques de relaxation", "Éléments de thérapie comportementale"],
+    focusTitle: "Domaines de spécialité",
+    focus: ["TDAH", "Troubles anxieux", "Trouble borderline et de la personnalité", "Dépression", "Troubles névrotiques", "Psychoses", "Schizophrénie"],
+    practicalTitle: "Informations pratiques",
+    hoursLabel: "Heures de consultation", hoursValue: "Sur rendez-vous, du lundi au vendredi",
+    feesLabel: "Honoraires", feesValue: "Selon le tarif suisse TARMED",
+    insuranceLabel: "Assurance maladie", insuranceValue: "Reconnu par l'assurance de base suisse (LAMal/KVG)",
+    accessLabel: "Accès", accessValue: "Centre de Zurich, près de Stadelhofen — train et tram à proximité",
+    contactTitle: "Demander un premier rendez-vous",
+    contactBody: "Faites le premier pas. Parlez-moi un peu de vous et je vous répondrai personnellement.",
+    fName: "Votre nom", fEmail: "E-mail", fPhone: "Téléphone", fConcern: "Qu'est-ce qui vous amène ? (facultatif)",
+    fSubmit: "Envoyer la demande", fNote: "Cela ouvre votre application de messagerie avec le message prêt à être envoyé.",
+  },
+  it: {
+    kicker: "Psichiatria & Psicoterapia · Zurigo",
+    heroLead: "Una terapia nella lingua del tuo cuore",
+    heroBody: "Da oltre 50 anni accompagno le persone nei momenti difficili — in sette lingue, perché tu possa parlare liberamente, con le parole che senti davvero tue.",
+    langsTitle: "Parlo la tua lingua",
+    langsBody: "Sentirsi compresi comincia dal poter parlare con naturalezza. Sei il benvenuto a iniziare il nostro colloquio in una di queste lingue:",
+    approachTitle: "Il mio approccio",
+    approachBody: "Il mio studio è uno spazio tranquillo e accogliente, dove sei accolto con apertura e senza giudizio. Insieme troviamo il percorso e i metodi più adatti a te — con i tuoi tempi e nel rispetto di chi sei.",
+    offerTitle: "Cosa offro",
+    offerBody: "Psicoterapia medica e psichiatria — in particolare psicoterapia cognitivo-comportamentale e psicoterapia psicoanalitica.",
+    methodsTitle: "Metodi",
+    methods: ["Psicoterapia del colloquio", "Metodi immaginativi", "Psicodramma", "Psicoterapia a orientamento psicodinamico", "Tecniche di rilassamento", "Elementi di terapia comportamentale"],
+    focusTitle: "Aree di specializzazione",
+    focus: ["ADHD", "Disturbi d'ansia", "Disturbo borderline e di personalità", "Depressione", "Disturbi nevrotici", "Psicosi", "Schizofrenia"],
+    practicalTitle: "Informazioni pratiche",
+    hoursLabel: "Orari di consultazione", hoursValue: "Su appuntamento, dal lunedì al venerdì",
+    feesLabel: "Onorari", feesValue: "Secondo la tariffa svizzera TARMED",
+    insuranceLabel: "Assicurazione", insuranceValue: "Riconosciuto dall'assicurazione di base svizzera (LAMal/KVG)",
+    accessLabel: "Come arrivare", accessValue: "Centro di Zurigo, vicino a Stadelhofen — treno e tram nelle vicinanze",
+    contactTitle: "Richiedere un primo colloquio",
+    contactBody: "Fai il primo passo. Raccontami un po' di te e ti risponderò personalmente.",
+    fName: "Il tuo nome", fEmail: "E-mail", fPhone: "Telefono", fConcern: "Cosa ti porta qui? (facoltativo)",
+    fSubmit: "Invia richiesta", fNote: "Questo apre la tua app di posta con il messaggio pronto da inviare.",
+  },
+  de: {
+    kicker: "Psychiatrie & Psychotherapie · Zürich",
+    heroLead: "Therapie in der Sprache Ihres Herzens",
+    heroBody: "Seit über 50 Jahren begleite ich Menschen durch schwierige Zeiten — in sieben Sprachen, damit Sie frei sprechen können, mit den Worten, die sich wirklich nach Ihnen anfühlen.",
+    langsTitle: "Ich spreche Ihre Sprache",
+    langsBody: "Sich verstanden zu fühlen beginnt damit, natürlich sprechen zu können. Sie sind herzlich eingeladen, unser Gespräch in einer dieser Sprachen zu beginnen:",
+    approachTitle: "Meine Haltung",
+    approachBody: "Meine Praxis ist ein ruhiger, warmer Ort, an dem Sie mit Offenheit und ohne Urteil empfangen werden. Gemeinsam finden wir den Weg und die Methoden, die zu Ihnen passen — in Ihrem Tempo und mit Respekt vor dem, wer Sie sind.",
+    offerTitle: "Mein Angebot",
+    offerBody: "Ärztliche Psychotherapie und Psychiatrie — insbesondere kognitiv-verhaltenstherapeutische Psychotherapie sowie psychoanalytische Psychotherapie.",
+    methodsTitle: "Methoden",
+    methods: ["Gesprächspsychotherapie", "Imaginative Verfahren", "Psychodrama", "Tiefenpsychologische Psychotherapie", "Entspannungsverfahren", "Verhaltenstherapeutische Elemente"],
+    focusTitle: "Schwerpunkte",
+    focus: ["ADHS", "Angsterkrankungen", "Borderline- und Persönlichkeitsstörungen", "Depressionen", "Neurotische Störungen", "Psychosen", "Schizophrenie"],
+    practicalTitle: "Praktische Informationen",
+    hoursLabel: "Sprechzeiten", hoursValue: "Nach Vereinbarung, Montag bis Freitag",
+    feesLabel: "Honorar", feesValue: "Nach schweizerischem TARMED-Tarif",
+    insuranceLabel: "Krankenversicherung", insuranceValue: "Anerkannt durch die schweizerische Grundversicherung (KVG)",
+    accessLabel: "Anfahrt", accessValue: "Zentrum von Zürich, nahe Stadelhofen — Bahn und Tram in der Nähe",
+    contactTitle: "Ein erstes Gespräch anfragen",
+    contactBody: "Machen Sie den ersten Schritt. Erzählen Sie mir ein wenig über sich, und ich melde mich persönlich bei Ihnen.",
+    fName: "Ihr Name", fEmail: "E-Mail", fPhone: "Telefon", fConcern: "Was führt Sie zu mir? (optional)",
+    fSubmit: "Anfrage senden", fNote: "Dies öffnet Ihr E-Mail-Programm mit der fertig vorbereiteten Nachricht.",
+  },
+  en: {
+    kicker: "Psychiatry & Psychotherapy · Zurich",
+    heroLead: "Therapy in the language of your heart",
+    heroBody: "For more than 50 years I have accompanied people through difficult times — in seven languages, so you can speak freely, in the words that truly feel like your own.",
+    langsTitle: "I speak your language",
+    langsBody: "Feeling understood begins with being able to speak naturally. You are warmly welcome to begin our conversation in any of these languages:",
+    approachTitle: "My approach",
+    approachBody: "My practice is a calm, warm space where you are met with openness and without judgement. Together we find the path and the methods that suit you — at your own pace, with respect for who you are.",
+    offerTitle: "What I offer",
+    offerBody: "Medical psychotherapy and psychiatry — in particular cognitive-behavioural psychotherapy and psychoanalytic psychotherapy.",
+    methodsTitle: "Methods",
+    methods: ["Talk-based psychotherapy", "Imaginative methods", "Psychodrama", "Depth-psychology psychotherapy", "Relaxation techniques", "Behavioural-therapy elements"],
+    focusTitle: "Areas of focus",
+    focus: ["ADHD", "Anxiety disorders", "Borderline & personality disorders", "Depression", "Neurotic disorders", "Psychoses", "Schizophrenia"],
+    practicalTitle: "Practical information",
+    hoursLabel: "Consultation hours", hoursValue: "By appointment, Monday to Friday",
+    feesLabel: "Fees", feesValue: "According to the Swiss TARMED tariff",
+    insuranceLabel: "Health insurance", insuranceValue: "Recognised by Swiss basic insurance (KVG)",
+    accessLabel: "Getting here", accessValue: "Central Zurich, near Stadelhofen — train and tram nearby",
+    contactTitle: "Request a first appointment",
+    contactBody: "Take the first step. Tell me a little about yourself and I will get back to you personally.",
+    fName: "Your name", fEmail: "Email", fPhone: "Phone", fConcern: "What brings you here? (optional)",
+    fSubmit: "Send request", fNote: "This opens your email app with the message ready to send.",
+  },
+  hu: {
+    kicker: "Pszichiátria & Pszichoterápia · Zürich",
+    heroLead: "Terápia a szíve nyelvén",
+    heroBody: "Több mint 50 éve kísérek embereket nehéz időszakokon át — hét nyelven, hogy szabadon beszélhessen, azokkal a szavakkal, amelyek igazán a sajátjai.",
+    langsTitle: "Beszélem az Ön nyelvét",
+    langsBody: "A megértettség érzése azzal kezdődik, hogy természetesen beszélhetünk. Szeretettel várom, hogy beszélgetésünket az alábbi nyelvek bármelyikén kezdjük:",
+    approachTitle: "A szemléletem",
+    approachBody: "A rendelőm nyugodt, meleg tér, ahol nyitottsággal és ítélkezés nélkül fogadom. Együtt megtaláljuk az Önhöz illő utat és módszereket — a saját tempójában, tisztelve azt, aki Ön.",
+    offerTitle: "Amit nyújtok",
+    offerBody: "Orvosi pszichoterápia és pszichiátria — különösen kognitív viselkedésterápiás és pszichoanalitikus pszichoterápia.",
+    methodsTitle: "Módszerek",
+    methods: ["Beszélgetésen alapuló pszichoterápia", "Imaginatív eljárások", "Pszichodráma", "Mélylélektani pszichoterápia", "Relaxációs technikák", "Viselkedésterápiás elemek"],
+    focusTitle: "Fő területek",
+    focus: ["ADHD", "Szorongásos zavarok", "Borderline és személyiségzavarok", "Depresszió", "Neurotikus zavarok", "Pszichózisok", "Skizofrénia"],
+    practicalTitle: "Gyakorlati tudnivalók",
+    hoursLabel: "Rendelési idő", hoursValue: "Előzetes egyeztetés alapján, hétfőtől péntekig",
+    feesLabel: "Honorárium", feesValue: "A svájci TARMED tarifa szerint",
+    insuranceLabel: "Egészségbiztosítás", insuranceValue: "A svájci alapbiztosítás (KVG) által elismert",
+    accessLabel: "Megközelítés", accessValue: "Zürich központja, a Stadelhofen közelében — vonat és villamos a közelben",
+    contactTitle: "Első időpont kérése",
+    contactBody: "Tegye meg az első lépést. Meséljen egy kicsit magáról, és személyesen válaszolok.",
+    fName: "Az Ön neve", fEmail: "E-mail", fPhone: "Telefon", fConcern: "Mi hozta ide? (nem kötelező)",
+    fSubmit: "Kérés elküldése", fNote: "Ez megnyitja az e-mail alkalmazását a kész üzenettel.",
+  },
+};
+
+// SVG flags
+function flagSVG(code) {
+  const w = 20, h = 13;
+  const v3 = (a, b, c) => `<svg width="${w}" height="${h}" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect x="0" width="1" height="2" fill="${a}"/><rect x="1" width="1" height="2" fill="${b}"/><rect x="2" width="1" height="2" fill="${c}"/></svg>`;
+  const hz3 = (a, b, c) => `<svg width="${w}" height="${h}" viewBox="0 0 3 3" xmlns="http://www.w3.org/2000/svg"><rect y="0" width="3" height="1" fill="${a}"/><rect y="1" width="3" height="1" fill="${b}"/><rect y="2" width="3" height="1" fill="${c}"/></svg>`;
+  switch(code) {
+    case "fr": return v3("#0055A4","#FFFFFF","#EF4135");
+    case "it": return v3("#008C45","#F4F5F0","#CD212A");
+    case "de": return hz3("#000000","#DD0000","#FFCE00");
+    case "hu": return hz3("#CD2A3E","#FFFFFF","#436F4D");
+    case "es": return `<svg width="${w}" height="${h}" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="3" height="2" fill="#AA151B"/><rect y="0.5" width="3" height="1" fill="#F1BF00"/></svg>`;
+    case "pt": return `<svg width="${w}" height="${h}" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#046A38"/><rect x="24" width="36" height="40" fill="#DA291C"/><circle cx="24" cy="20" r="7" fill="#FFD100"/><circle cx="24" cy="20" r="3.2" fill="#DA291C"/></svg>`;
+    case "en": return `<svg width="${w}" height="${h}" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="2"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg>`;
+    default: return "";
+  }
+}
+
+let currentLang = "pt";
+try { const s = localStorage.getItem("illes_lang"); if (s && t[s]) currentLang = s; } catch(e) {}
+
+function render(lang) {
+  currentLang = lang;
+  try { localStorage.setItem("illes_lang", lang); } catch(e) {}
+  const tr = t[lang];
+  document.documentElement.lang = lang;
+
+  // Nav pills
+  document.getElementById("lang-pills").innerHTML = langs.map(L =>
+    `<button class="pill${L.code===lang?" active":""}" onclick="render('${L.code}')" aria-label="${L.label}">
+      ${flagSVG(L.code)} ${L.label}
+    </button>`
+  ).join("");
+
+  // Hero
+  document.getElementById("hero-kicker").textContent = tr.kicker;
+  document.getElementById("hero-lead").textContent = tr.heroLead;
+  document.getElementById("hero-body").textContent = tr.heroBody;
+  const cta = document.getElementById("hero-cta");
+  cta.textContent = tr.contactTitle;
+  cta.insertAdjacentHTML("beforeend", ' <span style="font-size:18px">→</span>');
+
+  // Language USP
+  document.getElementById("langs-title").textContent = tr.langsTitle;
+  document.getElementById("langs-body").textContent = tr.langsBody;
+  document.getElementById("lang-cards").innerHTML = langs.map(L =>
+    `<button class="lang-card${L.code===lang?" active":""}" onclick="render('${L.code}')" aria-label="${L.label}">
+      <span class="lang-card-hello">${L.hello}</span>
+      <span class="lang-card-label">${L.label}</span>
+    </button>`
+  ).join("");
+
+  // Approach
+  document.getElementById("approach-kicker").textContent = tr.approachTitle;
+  document.getElementById("approach-body").textContent = tr.approachBody;
+
+  // Offer
+  document.getElementById("offer-kicker").textContent = tr.offerTitle;
+  document.getElementById("offer-body").textContent = tr.offerBody;
+  document.getElementById("methods-title").textContent = tr.methodsTitle;
+  document.getElementById("methods-list").innerHTML = tr.methods.map(m =>
+    `<span class="method-tag">${m}</span>`
+  ).join("");
+
+  // Focus
+  document.getElementById("focus-title").textContent = tr.focusTitle;
+  document.getElementById("focus-list").innerHTML = tr.focus.map(f =>
+    `<span class="focus-tag">${f}</span>`
+  ).join("");
+
+  // Practical
+  document.getElementById("practical-title").textContent = tr.practicalTitle;
+  document.getElementById("hours-label").textContent = tr.hoursLabel;
+  document.getElementById("hours-value").textContent = tr.hoursValue;
+  document.getElementById("fees-label").textContent = tr.feesLabel;
+  document.getElementById("fees-value").textContent = tr.feesValue;
+  document.getElementById("insurance-label").textContent = tr.insuranceLabel;
+  document.getElementById("insurance-value").textContent = tr.insuranceValue;
+  document.getElementById("access-label").textContent = tr.accessLabel;
+  document.getElementById("access-value").textContent = tr.accessValue;
+
+  // Contact
+  document.getElementById("contact-title").textContent = tr.contactTitle;
+  document.getElementById("contact-body").textContent = tr.contactBody;
+  document.getElementById("f-name").placeholder = tr.fName;
+  document.getElementById("f-email").placeholder = tr.fEmail;
+  document.getElementById("f-phone").placeholder = tr.fPhone;
+  document.getElementById("f-concern").placeholder = tr.fConcern;
+  document.getElementById("f-submit").textContent = tr.fSubmit;
+  document.getElementById("form-note").textContent = tr.fNote;
+}
+
+// Contact form submit → mailto
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const tr = t[currentLang];
+  const f = e.target;
+  const lines = [
+    tr.fName + ": " + (f.name.value || "—"),
+    tr.fEmail + ": " + (f.email.value || "—"),
+    tr.fPhone + ": " + (f.phone.value || "—"),
+    "",
+    tr.fConcern.replace(/\s*\(.*\)\s*$/, "") + ":",
+    (f.concern.value || "—"),
+  ];
+  const subject = encodeURIComponent(tr.contactTitle + " — " + (f.name.value || ""));
+  window.location.href = "mailto:" + contact.email + "?subject=" + subject + "&body=" + encodeURIComponent(lines.join("\n"));
+});
+
+render(currentLang);
+</script>
 </body>
 </html>
