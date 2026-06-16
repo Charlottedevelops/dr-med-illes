@@ -171,14 +171,16 @@
     <div id="contact-box">
       <h2 id="contact-title"></h2>
       <p id="contact-body"></p>
-      <form id="contact-form">
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="f4c1a54f-08d2-4fa9-9c2a-48e8914dcb83">
+        <input type="hidden" name="subject" id="f-subject" value="Neue Anfrage – Dr. Illes">
         <input name="name" required id="f-name">
         <input name="email" type="email" required id="f-email">
         <input name="phone" id="f-phone">
         <textarea name="concern" rows="4" id="f-concern"></textarea>
         <button type="submit" id="f-submit"></button>
-        <div id="form-note"></div>
       </form>
+      <div id="form-thanks" style="display:none; padding: 24px; font-family: 'Fraunces', Georgia, serif; font-size: 22px; color: #3C2113; font-weight: 500;"></div>
     </div>
   </section>
 
@@ -234,7 +236,7 @@ const t = {
     contactTitle: "Pedir uma primeira consulta",
     contactBody: "Dê o primeiro passo. Conte-me um pouco sobre si e responderei pessoalmente.",
     fName: "O seu nome", fEmail: "E-mail", fPhone: "Telefone", fConcern: "O que o traz aqui? (opcional)",
-    fSubmit: "Enviar pedido", fNote: "Isto abre a sua aplicação de e-mail com a mensagem pronta a enviar.",
+    fSubmit: "Enviar pedido", fThanks: "Obrigado — responderei pessoalmente em breve.",
   },
   es: {
     kicker: "Psiquiatría & Psicoterapia · Zúrich",
@@ -258,7 +260,7 @@ const t = {
     contactTitle: "Solicitar una primera cita",
     contactBody: "Da el primer paso. Cuéntame un poco sobre ti y te responderé personalmente.",
     fName: "Tu nombre", fEmail: "Correo electrónico", fPhone: "Teléfono", fConcern: "¿Qué te trae aquí? (opcional)",
-    fSubmit: "Enviar solicitud", fNote: "Esto abre tu aplicación de correo con el mensaje listo para enviar.",
+    fSubmit: "Enviar solicitud", fThanks: "Gracias — le responderé personalmente en breve.",
   },
   fr: {
     kicker: "Psychiatrie & Psychothérapie · Zurich",
@@ -282,7 +284,7 @@ const t = {
     contactTitle: "Demander un premier rendez-vous",
     contactBody: "Faites le premier pas. Parlez-moi un peu de vous et je vous répondrai personnellement.",
     fName: "Votre nom", fEmail: "E-mail", fPhone: "Téléphone", fConcern: "Qu'est-ce qui vous amène ? (facultatif)",
-    fSubmit: "Envoyer la demande", fNote: "Cela ouvre votre application de messagerie avec le message prêt à être envoyé.",
+    fSubmit: "Envoyer la demande", fThanks: "Merci — je vous répondrai personnellement très bientôt.",
   },
   it: {
     kicker: "Psichiatria & Psicoterapia · Zurigo",
@@ -306,7 +308,7 @@ const t = {
     contactTitle: "Richiedere un primo colloquio",
     contactBody: "Fai il primo passo. Raccontami un po' di te e ti risponderò personalmente.",
     fName: "Il tuo nome", fEmail: "E-mail", fPhone: "Telefono", fConcern: "Cosa ti porta qui? (facoltativo)",
-    fSubmit: "Invia richiesta", fNote: "Questo apre la tua app di posta con il messaggio pronto da inviare.",
+    fSubmit: "Invia richiesta", fThanks: "Grazie — ti risponderò personalmente a breve.",
   },
   de: {
     kicker: "Psychiatrie & Psychotherapie · Zürich",
@@ -330,7 +332,7 @@ const t = {
     contactTitle: "Ein erstes Gespräch anfragen",
     contactBody: "Machen Sie den ersten Schritt. Erzählen Sie mir ein wenig über sich, und ich melde mich persönlich bei Ihnen.",
     fName: "Ihr Name", fEmail: "E-Mail", fPhone: "Telefon", fConcern: "Was führt Sie zu mir? (optional)",
-    fSubmit: "Anfrage senden", fNote: "Dies öffnet Ihr E-Mail-Programm mit der fertig vorbereiteten Nachricht.",
+    fSubmit: "Anfrage senden", fThanks: "Danke — ich melde mich persönlich bei Ihnen.",
   },
   en: {
     kicker: "Psychiatry & Psychotherapy · Zurich",
@@ -354,7 +356,7 @@ const t = {
     contactTitle: "Request a first appointment",
     contactBody: "Take the first step. Tell me a little about yourself and I will get back to you personally.",
     fName: "Your name", fEmail: "Email", fPhone: "Phone", fConcern: "What brings you here? (optional)",
-    fSubmit: "Send request", fNote: "This opens your email app with the message ready to send.",
+    fSubmit: "Send request", fThanks: "Thank you — I will get back to you personally soon.",
   },
   hu: {
     kicker: "Pszichiátria & Pszichoterápia · Zürich",
@@ -378,7 +380,7 @@ const t = {
     contactTitle: "Első időpont kérése",
     contactBody: "Tegye meg az első lépést. Meséljen egy kicsit magáról, és személyesen válaszolok.",
     fName: "Az Ön neve", fEmail: "E-mail", fPhone: "Telefon", fConcern: "Mi hozta ide? (nem kötelező)",
-    fSubmit: "Kérés elküldése", fNote: "Ez megnyitja az e-mail alkalmazását a kész üzenettel.",
+    fSubmit: "Kérés elküldése", fThanks: "Köszönöm — hamarosan személyesen jelentkezem.",
   },
 };
 
@@ -470,24 +472,36 @@ function render(lang) {
   document.getElementById("f-phone").placeholder = tr.fPhone;
   document.getElementById("f-concern").placeholder = tr.fConcern;
   document.getElementById("f-submit").textContent = tr.fSubmit;
-  document.getElementById("form-note").textContent = tr.fNote;
 }
 
-// Contact form submit → mailto
-document.getElementById("contact-form").addEventListener("submit", function(e) {
+// Contact form submit → Web3Forms
+document.getElementById("contact-form").addEventListener("submit", async function(e) {
   e.preventDefault();
   const tr = t[currentLang];
-  const f = e.target;
-  const lines = [
-    tr.fName + ": " + (f.name.value || "—"),
-    tr.fEmail + ": " + (f.email.value || "—"),
-    tr.fPhone + ": " + (f.phone.value || "—"),
-    "",
-    tr.fConcern.replace(/\s*\(.*\)\s*$/, "") + ":",
-    (f.concern.value || "—"),
-  ];
-  const subject = encodeURIComponent(tr.contactTitle + " — " + (f.name.value || ""));
-  window.location.href = "mailto:" + contact.email + "?subject=" + subject + "&body=" + encodeURIComponent(lines.join("\n"));
+  const form = e.target;
+  const btn = document.getElementById("f-submit");
+  btn.disabled = true;
+  btn.style.opacity = "0.6";
+
+  const data = new FormData(form);
+  data.set("subject", tr.contactTitle + " — " + (form.name.value || ""));
+
+  try {
+    const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: data });
+    const json = await res.json();
+    if (json.success) {
+      form.style.display = "none";
+      const thanks = document.getElementById("form-thanks");
+      thanks.textContent = tr.fThanks;
+      thanks.style.display = "block";
+    } else {
+      btn.disabled = false;
+      btn.style.opacity = "1";
+    }
+  } catch(err) {
+    btn.disabled = false;
+    btn.style.opacity = "1";
+  }
 });
 
 render(currentLang);
