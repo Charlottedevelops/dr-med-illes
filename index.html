@@ -40,9 +40,9 @@
 
     /* Hero */
     #hero { padding: 76px 0 44px; text-align: center; animation: floatUp .7s ease both; }
+    #hero-portrait { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; object-position: center 28%; margin: 0 auto 26px; display: block; box-shadow: 0 10px 26px rgba(140,70,30,0.22); }
     #hero-kicker { display: inline-block; font-size: 12.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #C2622E; margin-bottom: 24px; }
-    #hero h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(36px, 5.4vw, 62px); line-height: 1.04; letter-spacing: -0.018em; margin: 0 auto 24px; color: #3C2113; max-width: 15ch; text-wrap: balance; }
-    #hero p { font-size: 19px; line-height: 1.62; color: #6B4A33; max-width: 30em; margin: 0 auto 32px; }
+    #hero h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(36px, 5.4vw, 62px); line-height: 1.04; letter-spacing: -0.018em; margin: 0 auto 32px; color: #3C2113; max-width: 15ch; text-wrap: balance; }
     #hero-cta { display: inline-flex; align-items: center; gap: 9px; background: linear-gradient(135deg, #F09A3E, #DD5C2C); color: #fff; font-weight: 600; font-size: 16px; text-decoration: none; padding: 15px 28px; border-radius: 999px; box-shadow: 0 10px 26px rgba(210,90,44,0.32); }
 
     /* Language USP */
@@ -67,15 +67,16 @@
     #offer-kicker { font-size: 12.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #C2622E; margin-bottom: 14px; }
     #offer-body { font-size: 17.5px; line-height: 1.6; color: #5C3D29; margin: 0 auto 26px; max-width: 34em; }
     #methods-title { font-size: 13px; font-weight: 700; color: #875233; margin-bottom: 13px; }
-    #methods-list { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    #methods-list { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+    .methods-primary-row, .methods-secondary-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
     .method-tag { font-size: 13.5px; font-weight: 500; color: #6B4A33; background: rgba(247,205,134,0.32); border: 1px solid rgba(180,110,60,0.16); padding: 8px 13px; border-radius: 999px; }
-    .method-tag-primary { font-size: 15px; font-weight: 650; color: #fff; background: #C2622E; border: none; padding: 11px 20px; border-radius: 999px; }
+    .method-tag-primary { font-size: 15px; font-weight: 650; color: #fff; background: linear-gradient(135deg, #E08440, #C0532A); border: none; padding: 11px 20px; border-radius: 999px; box-shadow: 0 6px 16px rgba(190,80,40,0.22); }
 
     /* Focus */
     #focus { padding: 24px 0; }
     #focus h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(22px, 2.8vw, 30px); margin: 0 0 18px; color: #3C2113; text-align: center; }
     #focus-list { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-    .focus-tag { font-size: 15.5px; font-weight: 500; color: #fff; background: linear-gradient(135deg, #E08440, #C0532A); padding: 10px 18px; border-radius: 999px; box-shadow: 0 6px 16px rgba(190,80,40,0.22); }
+    .focus-tag { font-size: 15.5px; font-weight: 500; color: #fff; background: #C2622E; padding: 10px 18px; border-radius: 999px; }
 
     /* Practical */
     #practical { padding: 40px 0 24px; }
@@ -119,9 +120,9 @@
 <main>
   <!-- HERO -->
   <section id="hero">
+    <img id="hero-portrait" src="dr-illes-portrait.jpg" alt="Dr. med. Peter Illes">
     <div id="hero-kicker"></div>
     <h1 id="hero-lead"></h1>
-    <p id="hero-body"></p>
     <a href="#contact" id="hero-cta"></a>
   </section>
 
@@ -214,7 +215,7 @@ const langs = [
   { code: "pt", label: "Português", hello: "Olá", extraFlag: "pt-br" },
   { code: "es", label: "Español",   hello: "Hola" },
   { code: "fr", label: "Français",  hello: "Bonjour" },
-  { code: "it", label: "Italiano",  hello: "Ciao" },
+  { code: "it", label: "Italiano",  hello: "Buongiorno" },
   { code: "de", label: "Deutsch",   hello: "Grüezi" },
   { code: "en", label: "English",   hello: "Hello" },
   { code: "hu", label: "Magyar",    hello: "Üdv" },
@@ -224,10 +225,9 @@ const t = {
   pt: {
     kicker: "Psiquiatria & Psicoterapia · Zurique",
     heroLead: "Terapia na sua língua materna",
-    heroBody: "Há muitos anos trato pessoas em situações difíceis em diversas línguas.",
     langsBody: "As consultas são possíveis nas seguintes línguas:",
     approachTitle: "A minha abordagem",
-    approachBody: "O meu consultório é um lugar de calma e reflexão, onde é recebido com abertura e sem preconceitos. Juntos procuramos o caminho e os métodos que correspondem às suas necessidades.",
+    approachBody: "O meu consultório é um lugar de calma. É recebido com abertura e sem preconceitos. Juntos procuramos o caminho que corresponde às suas necessidades.",
     offerTitle: "O que ofereço",
     offerBody: "Psicoterapia médica e farmacoterapia – <strong>presencialmente ou online</strong>",
     methodsTitle: "Métodos",
@@ -250,9 +250,9 @@ const t = {
   es: {
     kicker: "Psiquiatría & Psicoterapia · Zúrich",
     heroLead: "Terapia en su lengua materna",
-    heroBody: "Desde hace muchos años trato a personas en situaciones difíciles en diversos idiomas.",    langsBody: "Las consultas son posibles en los siguientes idiomas:",
+    langsBody: "Las consultas son posibles en los siguientes idiomas:",
     approachTitle: "Mi enfoque",
-    approachBody: "Mi consulta es un lugar de calma y reflexión, donde es recibido con apertura y sin prejuicios. Juntos buscamos el camino y los métodos que corresponden a sus necesidades.",
+    approachBody: "Mi consulta es un lugar de calma. Es recibido con apertura y sin prejuicios. Juntos buscamos el camino que corresponde a sus necesidades.",
     offerTitle: "Lo que ofrezco",
     offerBody: "Psicoterapia médica y farmacoterapia – <strong>en consulta o en línea</strong>",
     methodsTitle: "Métodos",
@@ -275,10 +275,9 @@ const t = {
   fr: {
     kicker: "Psychiatrie & Psychothérapie · Zurich",
     heroLead: "Une thérapie dans votre langue maternelle",
-    heroBody: "Depuis de nombreuses années, je traite des personnes dans des situations difficiles en plusieurs langues.",
     langsBody: "Les consultations sont possibles dans les langues suivantes :",
     approachTitle: "Mon approche",
-    approachBody: "Mon cabinet est un lieu de calme et de recueillement, où vous êtes accueilli avec ouverture et sans préjugés. Ensemble, nous cherchons le chemin et les méthodes qui correspondent à vos besoins.",
+    approachBody: "Mon cabinet est un lieu de calme. Vous êtes accueilli avec ouverture et sans préjugés. Ensemble, nous cherchons le chemin qui correspond à vos besoins.",
     offerTitle: "Ce que je propose",
     offerBody: "Psychothérapie médicale et pharmacothérapie – <strong>en cabinet ou en ligne</strong>",
     methodsTitle: "Méthodes",
@@ -301,10 +300,9 @@ const t = {
   it: {
     kicker: "Psichiatria & Psicoterapia · Zurigo",
     heroLead: "Una terapia nella sua lingua madre",
-    heroBody: "Da molti anni tratto persone in situazioni difficili in diverse lingue.",
     langsBody: "Le consultazioni sono possibili nelle seguenti lingue:",
     approachTitle: "Il mio approccio",
-    approachBody: "Il mio studio è un luogo di calma e raccoglimento, dove viene accolto con apertura e senza pregiudizi. Insieme cerchiamo il percorso e i metodi che corrispondono alle sue esigenze.",
+    approachBody: "Il mio studio è un luogo di calma. Viene accolto con apertura e senza pregiudizi. Insieme cerchiamo il percorso che corrisponde alle sue esigenze.",
     offerTitle: "Cosa offro",
     offerBody: "Psicoterapia medica e farmacoterapia – <strong>in studio o online</strong>",
     methodsTitle: "Metodi",
@@ -327,10 +325,9 @@ const t = {
   de: {
     kicker: "Psychiatrie & Psychotherapie · Zürich",
     heroLead: "Therapie in Ihrer Muttersprache",
-    heroBody: "Seit vielen Jahren behandle ich Menschen durch schwierige Situationen in diversen Sprachen.",
     langsBody: "Konsultationen sind in folgenden Sprachen möglich:",
     approachTitle: "Meine Haltung",
-    approachBody: "Meine Praxis ist ein Ort der Ruhe und Besinnung, an dem Sie mit Offenheit und ohne Vorurteil empfangen werden. Gemeinsam suchen wir den Weg und die Methoden, die Ihren Bedürfnissen entsprechen.",
+    approachBody: "Meine Praxis ist ein Ort der Ruhe. Sie werden mit Offenheit und ohne Vorurteil empfangen. Gemeinsam suchen wir den Weg, der Ihren Bedürfnissen entspricht.",
     offerTitle: "Mein Angebot",
     offerBody: "Ärztliche Psycho- und Pharmakotherapie – <strong>vor Ort oder Online</strong>",
     methodsTitle: "Methoden",
@@ -353,10 +350,9 @@ const t = {
   en: {
     kicker: "Psychiatry & Psychotherapy · Zurich",
     heroLead: "Therapy in your mother tongue",
-    heroBody: "For many years I have treated people through difficult situations in various languages.",
     langsBody: "Consultations are possible in the following languages:",
     approachTitle: "My approach",
-    approachBody: "My practice is a place of calm and reflection, where you are received with openness and without prejudice. Together we seek the path and the methods that correspond to your needs.",
+    approachBody: "My office is a place of calm. You will be received with openness and without prejudice. Together we define the methods that best correspond to your needs.",
     offerTitle: "What I offer",
     offerBody: "Medical psycho- and pharmacotherapy – <strong>in person or online</strong>",
     methodsTitle: "Methods",
@@ -379,10 +375,9 @@ const t = {
   hu: {
     kicker: "Pszichiátria & Pszichoterápia · Zürich",
     heroLead: "Terápia az anyanyelvén",
-    heroBody: "Hosszú évek óta kezelem az embereket nehéz helyzetekben különböző nyelveken.",
     langsBody: "A konzultációk az alábbi nyelveken lehetségesek:",
     approachTitle: "A szemléletem",
-    approachBody: "A rendelőm a nyugalom és az elmélyülés helye, ahol nyitottsággal és előítéletek nélkül fogadom. Együtt keressük az Ön igényeinek megfelelő utat és módszereket.",
+    approachBody: "A rendelőm a nyugalom helye. Nyitottsággal és előítéletek nélkül fogadom. Együtt keressük az Ön igényeinek megfelelő utat.",
     offerTitle: "Amit nyújtok",
     offerBody: "Orvosi pszicho- és farmakoterápia – <strong>személyesen vagy online</strong>",
     methodsTitle: "Módszerek",
@@ -442,7 +437,6 @@ function render(lang) {
   // Hero
   document.getElementById("hero-kicker").textContent = tr.kicker;
   document.getElementById("hero-lead").textContent = tr.heroLead;
-  document.getElementById("hero-body").textContent = tr.heroBody;
   const cta = document.getElementById("hero-cta");
   cta.textContent = tr.contactTitle;
   cta.insertAdjacentHTML("beforeend", ' <span style="font-size:18px">→</span>');
@@ -465,8 +459,8 @@ function render(lang) {
   document.getElementById("offer-body").innerHTML = tr.offerBody;
   document.getElementById("methods-title").textContent = tr.methodsTitle;
   document.getElementById("methods-list").innerHTML =
-    (tr.methodsPrimary || []).map(m => `<span class="method-tag-primary">${m}</span>`).join("") +
-    (tr.methods || []).map(m => `<span class="method-tag">${m}</span>`).join("");
+    `<div class="methods-primary-row">` + (tr.methodsPrimary || []).map(m => `<span class="method-tag-primary">${m}</span>`).join("") + `</div>` +
+    `<div class="methods-secondary-row">` + (tr.methods || []).map(m => `<span class="method-tag">${m}</span>`).join("") + `</div>`;
 
   // Focus
   document.getElementById("focus-title").textContent = tr.focusTitle;
