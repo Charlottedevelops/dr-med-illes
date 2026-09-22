@@ -83,7 +83,7 @@ T = {
   "pt": {
     "kicker": "Psiquiatria & Psicoterapia · Zurique",
     "heroLead": "Terapia na sua língua materna",
-    "langsBody": "As consultas são possíveis nas seguintes línguas:",
+    "langsBody": "As consultas são possíveis nas seguintes línguas: alemão, inglês, francês, italiano, espanhol, português e húngaro.",
     "approachTitle": "A minha abordagem",
     "approachBody": "O meu consultório é um lugar de calma. É recebido com abertura e sem preconceitos. Juntos procuramos o caminho que corresponde às suas necessidades.",
     "offerTitle": "O que ofereço",
@@ -108,7 +108,7 @@ T = {
   "es": {
     "kicker": "Psiquiatría & Psicoterapia · Zúrich",
     "heroLead": "Terapia en su lengua materna",
-    "langsBody": "Las consultas son posibles en los siguientes idiomas:",
+    "langsBody": "Las consultas son posibles en los siguientes idiomas: alemán, inglés, francés, italiano, español, portugués y húngaro.",
     "approachTitle": "Mi enfoque",
     "approachBody": "Mi consulta es un lugar de calma. Es recibido con apertura y sin prejuicios. Juntos buscamos el camino que corresponde a sus necesidades.",
     "offerTitle": "Lo que ofrezco",
@@ -133,7 +133,7 @@ T = {
   "fr": {
     "kicker": "Psychiatrie & Psychothérapie · Zurich",
     "heroLead": "Une thérapie dans votre langue maternelle",
-    "langsBody": "Les consultations sont possibles dans les langues suivantes :",
+    "langsBody": "Les consultations sont possibles dans les langues suivantes : allemand, anglais, français, italien, espagnol, portugais et hongrois.",
     "approachTitle": "Mon approche",
     "approachBody": "Mon cabinet est un lieu de calme. Vous êtes accueilli avec ouverture et sans préjugés. Ensemble, nous cherchons le chemin qui correspond à vos besoins.",
     "offerTitle": "Ce que je propose",
@@ -158,7 +158,7 @@ T = {
   "it": {
     "kicker": "Psichiatria & Psicoterapia · Zurigo",
     "heroLead": "Una terapia nella sua lingua madre",
-    "langsBody": "Le consultazioni sono possibili nelle seguenti lingue:",
+    "langsBody": "Le consultazioni sono possibili nelle seguenti lingue: tedesco, inglese, francese, italiano, spagnolo, portoghese e ungherese.",
     "approachTitle": "Il mio approccio",
     "approachBody": "Il mio studio è un luogo di calma. Viene accolto con apertura e senza pregiudizi. Insieme cerchiamo il percorso che corrisponde alle sue esigenze.",
     "offerTitle": "Cosa offro",
@@ -183,7 +183,7 @@ T = {
   "de": {
     "kicker": "Psychiatrie & Psychotherapie · Zürich",
     "heroLead": "Therapie in Ihrer Muttersprache",
-    "langsBody": "Konsultationen sind in folgenden Sprachen möglich:",
+    "langsBody": "Konsultationen sind in folgenden Sprachen möglich: Deutsch, Englisch, Französisch, Italienisch, Spanisch, Portugiesisch und Ungarisch.",
     "approachTitle": "Meine Haltung",
     "approachBody": "Meine Praxis ist ein Ort der Ruhe. Sie werden mit Offenheit und ohne Vorurteil empfangen. Gemeinsam suchen wir den Weg, der Ihren Bedürfnissen entspricht.",
     "offerTitle": "Mein Angebot",
@@ -208,7 +208,7 @@ T = {
   "en": {
     "kicker": "Psychiatry & Psychotherapy · Zurich",
     "heroLead": "Therapy in your mother tongue",
-    "langsBody": "Consultations are possible in the following languages:",
+    "langsBody": "Consultations are possible in the following languages: German, English, French, Italian, Spanish, Portuguese, and Hungarian.",
     "approachTitle": "My approach",
     "approachBody": "My office is a place of calm. You will be received with openness and without prejudice. Together we define the methods that best correspond to your needs.",
     "offerTitle": "What I offer",
@@ -233,7 +233,7 @@ T = {
   "hu": {
     "kicker": "Pszichiátria & Pszichoterápia · Zürich",
     "heroLead": "Terápia az anyanyelvén",
-    "langsBody": "A konzultációk az alábbi nyelveken lehetségesek:",
+    "langsBody": "A konzultációk az alábbi nyelveken lehetségesek: német, angol, francia, olasz, spanyol, portugál és magyar.",
     "approachTitle": "A szemléletem",
     "approachBody": "A rendelőm a nyugalom helye. Nyitottsággal és előítéletek nélkül fogadom. Együtt keressük az Ön igényeinek megfelelő utat.",
     "offerTitle": "Amit nyújtok",
