@@ -283,7 +283,7 @@ def build_cards(current):
     out = []
     for code in LANG_ORDER:
         active = " active" if code == current else ""
-        out.append(f'<a class="lang-card{active}" href="{PATHS[code]}" aria-label="{LABELS[code]}"><span class="lang-card-hello">{HELLO[code]}</span><span class="lang-card-label">{LABELS[code]}</span></a>')
+        out.append(f'<a class="lang-card{active}" href="{PATHS[code]}" aria-label="{LABELS[code]}"><span class="lang-card-hello">{HELLO[code]}</span></a>')
     return "".join(out)
 
 def build_methods(tr):
@@ -431,7 +431,6 @@ def render_page(lang):
         '''document.getElementById("lang-cards").innerHTML = langs.map(L =>
     `<a class="lang-card${L.code===lang?" active":""}" href="${langUrls[L.code]}" aria-label="${L.label}">
       <span class="lang-card-hello">${L.hello}</span>
-      <span class="lang-card-label">${L.label}</span>
     </a>`
   ).join("");'''
     )
