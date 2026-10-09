@@ -103,7 +103,7 @@ T = {
     "contactBody": "Partilhe comigo a sua situação e responderei pessoalmente.",
     "telLabel": "Telefone", "emailLabel": "E-mail",
     "fName": "O seu nome", "fEmail": "E-mail", "fPhone": "Telefone", "fConcern": "O que o traz aqui?",
-    "fSubmit": "Enviar pedido", "fThanks": "Obrigado! Responderei pessoalmente em breve.",
+    "fSubmit": "Enviar pedido", "fThanks": "Obrigado pelo seu e-mail! Responderei em breve. Em caso de emergência, também estou contactável por telefone através do: 044 211 68 71",
   },
   "es": {
     "kicker": "Psiquiatría & Psicoterapia · Zúrich",
@@ -128,7 +128,7 @@ T = {
     "contactBody": "Comparta conmigo su consulta y le responderé personalmente.",
     "telLabel": "Teléfono", "emailLabel": "Correo electrónico",
     "fName": "Tu nombre", "fEmail": "Correo electrónico", "fPhone": "Teléfono", "fConcern": "¿Qué le trae aquí?",
-    "fSubmit": "Enviar solicitud", "fThanks": "¡Gracias! Le responderé personalmente en breve.",
+    "fSubmit": "Enviar solicitud", "fThanks": "¡Gracias por su correo! Le responderé en breve. En caso de urgencia, también puede llamarme al: 044 211 68 71",
   },
   "fr": {
     "kicker": "Psychiatrie & Psychothérapie · Zurich",
@@ -153,7 +153,7 @@ T = {
     "contactBody": "Faites-moi part de votre demande et je vous répondrai personnellement.",
     "telLabel": "Téléphone", "emailLabel": "E-mail",
     "fName": "Votre nom", "fEmail": "E-mail", "fPhone": "Téléphone", "fConcern": "Qu'est-ce qui vous amène ?",
-    "fSubmit": "Envoyer la demande", "fThanks": "Merci ! Je vous répondrai personnellement dans les meilleurs délais.",
+    "fSubmit": "Envoyer la demande", "fThanks": "Merci pour votre e-mail ! Je vous répondrai dans les meilleurs délais. En cas d'urgence, je suis également joignable par téléphone au : 044 211 68 71",
   },
   "it": {
     "kicker": "Psichiatria & Psicoterapia · Zurigo",
@@ -178,7 +178,7 @@ T = {
     "contactBody": "Mi comunichi la sua richiesta e le risponderò personalmente.",
     "telLabel": "Telefono", "emailLabel": "E-mail",
     "fName": "Il tuo nome", "fEmail": "E-mail", "fPhone": "Telefono", "fConcern": "Cosa la porta qui?",
-    "fSubmit": "Invia richiesta", "fThanks": "Grazie! Le risponderò personalmente a breve.",
+    "fSubmit": "Invia richiesta", "fThanks": "Grazie per la sua e-mail! Le risponderò a breve. In caso di emergenza sono raggiungibile anche per telefono al: 044 211 68 71",
   },
   "de": {
     "kicker": "Psychiatrie & Psychotherapie · Zürich",
@@ -203,7 +203,7 @@ T = {
     "contactBody": "Teilen Sie mir Ihr Anliegen, und ich melde mich persönlich bei Ihnen.",
     "telLabel": "Telefon", "emailLabel": "E-Mail",
     "fName": "Ihr Name", "fEmail": "E-Mail", "fPhone": "Telefon", "fConcern": "Was führt Sie zu mir?",
-    "fSubmit": "Anfrage senden", "fThanks": "Danke! Ich melde mich zeitnah bei Ihnen.",
+    "fSubmit": "Anfrage senden", "fThanks": "Danke für Ihre Mail! Ich melde mich zeitnah bei Ihnen. Im Notfall bin ich auch telefonisch erreichbar unter: 044 211 68 71",
   },
   "en": {
     "kicker": "Psychiatry & Psychotherapy · Zurich",
@@ -228,7 +228,7 @@ T = {
     "contactBody": "Share your concern with me and I will get back to you personally.",
     "telLabel": "Phone", "emailLabel": "Email",
     "fName": "Your name", "fEmail": "Email", "fPhone": "Phone", "fConcern": "What brings you here?",
-    "fSubmit": "Send request", "fThanks": "Thank you! I will get back to you personally shortly.",
+    "fSubmit": "Send request", "fThanks": "Thank you for your email! I will get back to you shortly. In an emergency, you can also reach me by phone at: 044 211 68 71",
   },
   "hu": {
     "kicker": "Pszichiátria & Pszichoterápia · Zürich",
@@ -253,7 +253,7 @@ T = {
     "contactBody": "Ossza meg velem az ügyét, és személyesen válaszolok.",
     "telLabel": "Telefon", "emailLabel": "E-mail",
     "fName": "Az Ön neve", "fEmail": "E-mail", "fPhone": "Telefon", "fConcern": "Mi hozta ide?",
-    "fSubmit": "Kérés elküldése", "fThanks": "Köszönöm! Hamarosan személyesen jelentkezem.",
+    "fSubmit": "Kérés elküldése", "fThanks": "Köszönöm az e-mailjét! Hamarosan jelentkezem. Sürgős esetben telefonon is elérhető vagyok a következő számon: 044 211 68 71",
   },
 }
 
