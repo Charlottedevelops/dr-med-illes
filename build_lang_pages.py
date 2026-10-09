@@ -34,10 +34,10 @@ OG_LOCALE = {
 
 SEO = {
     "de": {
-        "title": "Dr. med. Peter Illes – Psychiater Zürich | Psychiatrie & Psychotherapie",
-        "description": "Dr. med. Peter Illes, Facharzt FMH für Psychiatrie und Psychotherapie in Zürich. Sprechstunde vor Ort oder online, in sieben Sprachen.",
-        "og_title": "Dr. med. Peter Illes – Psychiater Zürich",
-        "og_description": "Psychiatrie & Psychotherapie in 7 Sprachen. General Wille-Strasse 21, 8002 Zürich.",
+        "title": "Psychiater Zürich – auch auf Portugiesisch | Dr. med. Peter Illes",
+        "description": "Psychiater in Zürich: Dr. med. Peter Illes, Facharzt FMH. Therapie auf Deutsch, Portugiesisch, Englisch, Französisch, Italienisch, Spanisch und Ungarisch – vor Ort oder online.",
+        "og_title": "Psychiater Zürich – auch auf Portugiesisch | Dr. med. Peter Illes",
+        "og_description": "Psychiatrie & Psychotherapie in Zürich, auch auf Portugiesisch. General Wille-Strasse 21, 8002 Zürich.",
     },
     "en": {
         "title": "Dr. med. Peter Illes – Psychiatrist in Zurich | Psychiatry & Psychotherapy",
@@ -64,10 +64,10 @@ SEO = {
         "og_description": "Psiquiatría y psicoterapia en 7 idiomas. General Wille-Strasse 21, 8002 Zúrich.",
     },
     "pt": {
-        "title": "Dr. med. Peter Illes – Psiquiatra em Zurique | Psiquiatria e Psicoterapia",
-        "description": "Dr. med. Peter Illes, médico especialista FMH em psiquiatria e psicoterapia em Zurique. Consultas presenciais ou online, em sete idiomas.",
-        "og_title": "Dr. med. Peter Illes – Psiquiatra em Zurique",
-        "og_description": "Psiquiatria e psicoterapia em 7 idiomas. General Wille-Strasse 21, 8002 Zurique.",
+        "title": "Psiquiatra em Zurique – consultas em português | Dr. med. Peter Illes",
+        "description": "Psiquiatra em Zurique: Dr. med. Peter Illes, especialista FMH. Consultas em português, alemão, inglês, francês, italiano, espanhol e húngaro – presencialmente ou online.",
+        "og_title": "Psiquiatra em Zurique – consultas em português | Dr. med. Peter Illes",
+        "og_description": "Psiquiatria e psicoterapia em Zurique, com consultas em português. General Wille-Strasse 21, 8002 Zurique.",
     },
     "hu": {
         "title": "Dr. med. Peter Illes – Pszichiáter Zürichben | Pszichiátria és Pszichoterápia",
